@@ -12,6 +12,8 @@ namespace DDD.Infrastructure
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
 
+            
+
         }
     }
 }
