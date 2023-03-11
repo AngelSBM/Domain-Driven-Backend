@@ -7,5 +7,8 @@ namespace DDD.Application.Controllers
     [ApiController]
     public class ContactController : ControllerBase
     {
+
+
+
     }
 }

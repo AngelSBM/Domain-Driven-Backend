@@ -1,3 +1,5 @@
+using System;
+
 namespace DDD.Application
 {
     public class WeatherForecast
