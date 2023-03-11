@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD.Application", "DDD.Application\DDD.Application.csproj", "{18354F5E-86BD-4E24-83EB-97A356B8866C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDD.Application", "DDD.Application\DDD.Application.csproj", "{18354F5E-86BD-4E24-83EB-97A356B8866C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD.Domain", "DDD.Domain\DDD.Domain.csproj", "{1A67E547-BD4E-4629-A091-5417D624CCDE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDD.Domain", "DDD.Domain\DDD.Domain.csproj", "{1A67E547-BD4E-4629-A091-5417D624CCDE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD.Infrastructure", "DDD.Infrastructure\DDD.Infrastructure.csproj", "{0A3BCA53-FFAB-4021-9BC7-B21F32E57615}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDD.Infrastructure", "DDD.Infrastructure\DDD.Infrastructure.csproj", "{0A3BCA53-FFAB-4021-9BC7-B21F32E57615}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD.Utilities", "DDD.Utilities\DDD.Utilities.csproj", "{C765AFAE-E392-470C-A91A-75AC4604B877}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{0A3BCA53-FFAB-4021-9BC7-B21F32E57615}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A3BCA53-FFAB-4021-9BC7-B21F32E57615}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A3BCA53-FFAB-4021-9BC7-B21F32E57615}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C765AFAE-E392-470C-A91A-75AC4604B877}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C765AFAE-E392-470C-A91A-75AC4604B877}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C765AFAE-E392-470C-A91A-75AC4604B877}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C765AFAE-E392-470C-A91A-75AC4604B877}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
