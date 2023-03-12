@@ -37,6 +37,12 @@ namespace DDD.Infrastructure
                 entity.HasKey(e => e.Id);
                 entity.Property(e => e.AddressLine).HasColumnName("address_line");
                 entity.Property(e => e.ContactId).HasColumnName("contact_id");
+
+                entity.HasOne(e => e.Contact)
+                      .WithMany(e => e.Addresses)
+                      .HasForeignKey(e => e.ContactId);
+
+
             });
         }
     }

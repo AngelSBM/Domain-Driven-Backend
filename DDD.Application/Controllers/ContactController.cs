@@ -1,6 +1,7 @@
 ﻿using DDD.Application.Services.Abstractions;
 using DDD.Domain.Entities;
 using DDD.Domain.Interfaces;
+using DDD.Utilities.DTOs.Contact;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -24,6 +25,22 @@ namespace DDD.Application.Controllers
             try
             {
                 var response = await _contactService.GetContacts();
+                return new OkObjectResult(response);
+            }
+            catch (Exception ex)
+            {
+                return new BadRequestObjectResult(ex.Message);
+            }
+        }
+
+
+        [HttpPost]
+        [Route("Create")]
+        public async Task<IActionResult> Create(NewContactDto newContact)
+        {
+            try
+            {
+                var response = await _contactService.CreateContact(newContact);
                 return new OkObjectResult(response);
             }
             catch (Exception ex)

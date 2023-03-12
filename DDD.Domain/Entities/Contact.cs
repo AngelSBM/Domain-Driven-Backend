@@ -16,18 +16,22 @@ namespace DDD.Domain.Entities
 
         public ICollection<Address> Addresses { get; set; }
 
+        public Contact()
+        {
+            Addresses = new List<Address>();
+        }
 
         public void AddAddressInPuntaCana(Address address)
         {
 
             if (!IsAddressInPuntaCana(address.AddressLine))
             {
-                throw new InvalidOperationException("Address must be in Punta Cana city.");
+                throw new Exception("Address must be in Punta Cana city.");
             }
 
             if (Addresses.Contains(address))
             {
-                throw new InvalidOperationException("You already have this address");
+                throw new Exception("You already have this address");
             }
 
             Addresses.Add(address);

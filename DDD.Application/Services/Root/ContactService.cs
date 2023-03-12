@@ -30,22 +30,25 @@ namespace DDD.Application.Services.Root
             try
             {
 
-                _unitOfWork.BeginTransaction();
+                await _unitOfWork.BeginTransaction();
 
                 var contactDB = new Contact();
                 contactDB.Name = newContact.Name;
                 contactDB.Lastname = newContact.Lastname;
                 contactDB.Email = newContact.Email;
 
-                _unitOfWork.ContactRepo.Add(contactDB);
+                await _unitOfWork.ContactRepo.Add(contactDB);
+
+                await _unitOfWork.SaveChanges();
 
                 foreach (NewAddressDto newAdress in newContact.NewAddresses)
                 {
-                    contactDB.Addresses.Add(new Address() 
+                    contactDB.AddAddressInPuntaCana(new Address() 
                     {
                         AddressLine = newAdress.AddressLine,
                         ContactId = contactDB.Id
                     });
+                    await _unitOfWork.SaveChanges();
                 }
 
 
@@ -57,7 +60,7 @@ namespace DDD.Application.Services.Root
             catch(Exception ex) 
             {
                 await _unitOfWork.RollbackTransaction();
-                throw new Exception("Something went wrong creating a contact.");
+                throw new Exception(ex.Message);
             }             
 
         }
@@ -78,7 +81,6 @@ namespace DDD.Application.Services.Root
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
-                throw;
             }
 
         }
