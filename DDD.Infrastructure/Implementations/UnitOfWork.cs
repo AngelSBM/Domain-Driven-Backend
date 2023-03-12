@@ -14,7 +14,7 @@ namespace DDD.Infrastructure.Implementations
         private readonly ApplicationDbContext _context;
 
         public UnitOfWork(ApplicationDbContext context,
-                    Repository<Contact> contactRepo,
+                    IContactRepository contactRepo,
                     Repository<Address> addressRepo) 
         {
             _context = context;
@@ -23,8 +23,7 @@ namespace DDD.Infrastructure.Implementations
             AddressRepo = addressRepo;
         }
 
-        public IRepository<Contact> ContactRepo { get; set; }
-
+        public IContactRepository ContactRepo { get; set; }
         public IRepository<Address> AddressRepo { get; set; }
 
         public async Task BeginTransaction()

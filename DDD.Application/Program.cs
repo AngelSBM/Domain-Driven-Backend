@@ -1,18 +1,24 @@
+using DDD.Application.Services.Abstractions;
+using DDD.Application.Services.Root;
 using DDD.Domain.Entities;
 using DDD.Domain.Interfaces;
 using DDD.Infrastructure;
 using DDD.Infrastructure.Implementations;
 using DDD.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DbServer")));
+var connectionDB = builder.Configuration.GetConnectionString("DbServer");
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionDB));
+
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 builder.Services.AddScoped<IContactRepository, ContactRepository>();
 builder.Services.AddScoped<IRepository<Address>, Repository<Address>>();
+
+builder.Services.AddScoped<IContactService, ContactService>();
 
 
 builder.Services.AddControllers();
