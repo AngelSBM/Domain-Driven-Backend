@@ -8,7 +8,7 @@ namespace DDD.Utilities.DTOs.ContactDependents
 {
     public class AddressDto
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public string AddressLine { get; set; }
     }
 }

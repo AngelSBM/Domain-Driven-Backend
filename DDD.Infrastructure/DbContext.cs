@@ -23,10 +23,13 @@ namespace DDD.Infrastructure
             {
                 entity.ToTable("Contacts");
                 entity.Property(e => e.Id).HasColumnName("id");
-                //entity.HasKey(e => e.Id);
                 entity.Property(e => e.Name).HasColumnName("contact_name");
                 entity.Property(e => e.Lastname).HasColumnName("contact_lastname");
                 entity.Property(e => e.Email).HasColumnName("email");
+
+                entity.HasMany(e => e.Addresses)
+                      .WithOne(e => e.Contact)
+                      .OnDelete(DeleteBehavior.ClientCascade);
             });
 
 

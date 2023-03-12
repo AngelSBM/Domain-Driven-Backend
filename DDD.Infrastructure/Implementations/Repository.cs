@@ -49,13 +49,9 @@ namespace DDD.Infrastructure.Repositories
             return await _context.Set<T>().FindAsync(id);
         }
 
-        public async Task Remove(int id)
+        public void Remove(T entity)
         {
-            T entity = await _context.Set<T>().FindAsync(id);
-            if (entity != null)
-            {
-                _context.Set<T>().Remove(entity);
-            }
+            _context.Set<T>().Remove(entity);          
         }
     }
 }

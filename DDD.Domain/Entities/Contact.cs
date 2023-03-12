@@ -20,6 +20,7 @@ namespace DDD.Domain.Entities
         {
             Addresses = new List<Address>();
         }
+    
 
         public void AddAddressInPuntaCana(Address address)
         {
@@ -37,6 +38,24 @@ namespace DDD.Domain.Entities
             Addresses.Add(address);
         }
 
+
+        public void ChangeOfAddressMustBeInPuntaCana(Address address, string updateAddress)
+        {
+            if (!IsAddressInPuntaCana(updateAddress))
+            {
+                throw new Exception("Address must be in Punta Cana city.");
+            }
+
+            Addresses.ToList().ForEach(entityAddress =>
+            {
+                if (entityAddress.Id == address.Id)
+                {
+                    address.AddressLine = updateAddress;
+                }
+            });
+
+        }
+
         private bool IsAddressInPuntaCana(string address) 
         { 
             bool isAddressInPuntaCana = false;
@@ -46,5 +65,6 @@ namespace DDD.Domain.Entities
             }
             return isAddressInPuntaCana;
         }
+        
     }
 }

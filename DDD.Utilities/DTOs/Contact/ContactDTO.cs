@@ -8,28 +8,14 @@ using System.Threading.Tasks;
 
 namespace DDD.Utilities.DTOs.Contact
 {
-    public class ContactDto
+    public class ContactDto 
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public string Lastname { get; set; }
         public string Email { get; set; }
 
         public IEnumerable<AddressDto> Addresses { get; set; }
-
-    }
-
-    public class NewContactValidator : AbstractValidator<NewContactDto>
-    {
-        public NewContactValidator()
-        {
-            RuleFor(x => x.Name)
-                    .NotEmpty()
-                    .WithMessage("Contact name is required.");
-
-            RuleFor(x => x.NewAddresses.Count())
-                                       .NotEqual(0)
-                                       .WithMessage("Contact should have at least one address.");
-        }
 
     }
 }

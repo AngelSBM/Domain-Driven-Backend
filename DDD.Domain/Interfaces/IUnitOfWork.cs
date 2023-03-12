@@ -10,7 +10,7 @@ namespace DDD.Domain.Interfaces
     public interface IUnitOfWork
     {
         public IContactRepository ContactRepo { get; set; }
-        //public IRepository<Address> AddressRepo { get; set; }
+        public IRepository<Address> AddressRepo { get; set; }
 
         public Task SaveChanges();
         public Task BeginTransaction();

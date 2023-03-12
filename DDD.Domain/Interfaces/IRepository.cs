@@ -15,6 +15,6 @@ namespace DDD.Domain.Interfaces
         public Task<T> Find(Expression<Func<T, bool>> expression);
         public Task<IEnumerable<T>> FindAll(Expression<Func<T, bool>> expression);
         public Task<bool> Exists(Expression<Func<T, bool>> expression);
-        public Task Remove(int id);
+        public void Remove(T entity);
     }
 }

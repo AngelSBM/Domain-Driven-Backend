@@ -10,5 +10,6 @@ namespace DDD.Domain.Interfaces
     public interface IContactRepository : IRepository<Contact>
     {
         public Task<IEnumerable<Contact>> GetContactsWithAddresses();
+        public Task<Contact> GetContactById(int id);
     }
 }

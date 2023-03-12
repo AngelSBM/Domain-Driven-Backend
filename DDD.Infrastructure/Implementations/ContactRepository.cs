@@ -20,12 +20,17 @@ namespace DDD.Infrastructure.Implementations
 
         public async Task<IEnumerable<Contact>> GetContactsWithAddresses()
         {
-            var contacts = await _context.Set<Contact>()
-                                         .Include(x => x.Addresses)
-                                         .ToListAsync();
-            return contacts;
-                                   
-            
+            return await _context.Set<Contact>()
+                                 .Include(x => x.Addresses)
+                                 .ToListAsync();
+                                                           
+        }
+
+        public async Task<Contact> GetContactById(int id)
+        {
+            return await _context.Set<Contact>()
+                                 .Include(x => x.Addresses)
+                                 .FirstOrDefaultAsync(c => c.Id == id);
         }
     }
 }
