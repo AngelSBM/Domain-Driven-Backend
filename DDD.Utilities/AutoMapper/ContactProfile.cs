@@ -23,6 +23,7 @@ namespace DDD.Utilities.AutoMapper
 
         public IEnumerable<AddressDto> MapAddresses(Contact contact, ContactDto contactDto)
         {
+
             List<AddressDto> result = new List<AddressDto>();
             foreach (var address in contact.Addresses)
             {

@@ -69,9 +69,17 @@ namespace DDD.Application.Services.Root
 
         public async Task<IEnumerable<ContactDto>> GetContacts()
         {
-            var contacts = await _unitOfWork.ContactRepo.GetContactsWithAddresses();
+            try
+            {
+                var contacts = await _unitOfWork.ContactRepo.GetContactsWithAddresses();
 
-            return _mapper.Map<List<ContactDto>>(contacts);
+                return _mapper.Map<List<ContactDto>>(contacts);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+                throw;
+            }
 
         }
 

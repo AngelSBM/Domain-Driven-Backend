@@ -1,10 +1,12 @@
 using DDD.Application.Services.Abstractions;
+using AutoMapper;
 using DDD.Application.Services.Root;
 using DDD.Domain.Entities;
 using DDD.Domain.Interfaces;
 using DDD.Infrastructure;
 using DDD.Infrastructure.Implementations;
 using DDD.Infrastructure.Repositories;
+using DDD.Utilities.AutoMapper;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +14,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 var connectionDB = builder.Configuration.GetConnectionString("DbServer");
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionDB));
+builder.Services.AddAutoMapper(typeof(ContactProfile).Assembly);
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 

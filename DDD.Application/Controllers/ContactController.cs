@@ -11,20 +11,25 @@ namespace DDD.Application.Controllers
     public class ContactController : ControllerBase
     {
 
-        private readonly IRepository<Address> _addressRepository;
         private readonly IContactService _contactService;
-        public ContactController(IContactService contactService, IRepository<Address> repo)
+        public ContactController(IContactService contactService)
         {
             _contactService = contactService;
-            _addressRepository = repo;
         }
 
         [HttpGet]
         [Route("GetAll")]
         public async Task<IActionResult> GetAll()
         {
-            var response = await _addressRepository.GetAll();
-            return new OkObjectResult(response);
+            try
+            {
+                var response = await _contactService.GetContacts();
+                return new OkObjectResult(response);
+            }
+            catch (Exception ex)
+            {
+                return new BadRequestObjectResult(ex.Message);
+            }
         }
 
     }
