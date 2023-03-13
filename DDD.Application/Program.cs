@@ -50,16 +50,16 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-//var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+var corsConfig = "_corsConfig";
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy(name: "",
+    options.AddPolicy(name: corsConfig,
                       policy =>
                       {
-                          policy.AllowAnyOrigin()
-                               .AllowAnyHeader()
-                                .AllowAnyMethod()
-                                .AllowCredentials();
+                          policy
+                            .AllowAnyOrigin()
+                            .AllowAnyHeader()
+                            .AllowAnyMethod();
                       });
 });
 
@@ -77,6 +77,8 @@ app.UseSwaggerUI();
 
 
 app.UseHttpsRedirection();
+
+app.UseCors(corsConfig);
 
 app.UseAuthorization();
 
