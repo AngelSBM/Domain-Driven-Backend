@@ -44,7 +44,7 @@
                 "build"
             ],
             "dockerBuild": {
-                "tag": "dddapplication:dev",
+                "tag": "domaindrivenbackend:dev",
                 "target": "base",
                 "dockerfile": "${workspaceFolder}/DDD.Application/Dockerfile",
                 "context": "${workspaceFolder}",
@@ -61,7 +61,7 @@
                 "build"
             ],
             "dockerBuild": {
-                "tag": "dddapplication:latest",
+                "tag": "domaindrivenbackend:latest",
                 "dockerfile": "${workspaceFolder}/DDD.Application/Dockerfile",
                 "context": "${workspaceFolder}",
                 "pull": true

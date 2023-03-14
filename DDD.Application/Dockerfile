@@ -6,7 +6,7 @@ ENV ASPNETCORE_URLS=http://+:5010
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["DDD.Application/DDD.Application.csproj", "DDD.Application/"]
+COPY ["/DDD.Application/DDD.Application.csproj", "DDD.Application/"]
 RUN dotnet restore "DDD.Application\DDD.Application.csproj"
 COPY . .
 WORKDIR "/src/DDD.Application"
